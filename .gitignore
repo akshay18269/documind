@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+data/index/
+data/uploads/
+eval/results.json
+.pytest_cache/
+.DS_Store

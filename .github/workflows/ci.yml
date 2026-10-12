@@ -1,0 +1,14 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      # Tests use a fake LLM and a hashing embedder, so no API key or model download is needed
+      - run: pip install numpy pypdf pytest faiss-cpu requests
+      - run: pytest -q
